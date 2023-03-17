@@ -1,4 +1,4 @@
-package ind.awhic.louapi;
+package ind.awhic.nouvites;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Bean;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class LouApiApplication {
+public class NouVitesApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LouApiApplication.class, args);
+		SpringApplication.run(NouVitesApiApplication.class, args);
 	}
 
 	@Bean

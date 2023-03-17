@@ -1,4 +1,4 @@
-package ind.awhic.louapi.service.controller;
+package ind.awhic.nouvites.service.controller;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class LouisvilleGetControllerTest {
+class ArticlesControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -27,14 +27,14 @@ class LouisvilleGetControllerTest {
 
     @Test
     public void getGreetingMvc() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/version").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello from LouAPI!")));
+                .andExpect(content().string(equalTo("NouVites version 0.1.0")));
     }
 
     @Test
     public void getGreetingRest() {
-        ResponseEntity<String> response = template.getForEntity("/", String.class);
-        assertThat(response.getBody()).isEqualTo("Hello from LouAPI!");
+        ResponseEntity<String> response = template.getForEntity("/v1/version", String.class);
+        assertThat(response.getBody()).isEqualTo("NouVites version 0.1.0");
     }
 }
