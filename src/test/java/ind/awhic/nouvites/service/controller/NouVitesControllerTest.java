@@ -1,5 +1,4 @@
 package ind.awhic.nouvites.service.controller;
-
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-class ArticlesControllerTest {
+class NouVitesControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -27,14 +26,14 @@ class ArticlesControllerTest {
 
     @Test
     public void getGreetingMvc() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/version").accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/admin/version").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("NouVites version 0.1.0")));
+                .andExpect(content().string(equalTo("NouVites Version 0.1.0")));
     }
 
     @Test
     public void getGreetingRest() {
-        ResponseEntity<String> response = template.getForEntity("/v1/version", String.class);
-        assertThat(response.getBody()).isEqualTo("NouVites version 0.1.0");
+        ResponseEntity<String> response = template.getForEntity("/v1/admin/version", String.class);
+        assertThat(response.getBody()).isEqualTo("NouVites Version 0.1.0");
     }
 }
